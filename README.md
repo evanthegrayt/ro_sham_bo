@@ -16,18 +16,19 @@ ln -s $PWD/bin/rps /usr/local/bin
 ```
 
 ## Usage
-Just call the `rps` executable, which should now be in your `$PATH`. Currently,
-the only option is `-r [NUMBER OF ROUNDS]`, which changes the number of rounds.
-The default is best-of `3`, and the number passed with `-r` must be an odd
-number.
+Just call the `rps` executable, which should now be in your `$PATH`.
+The default number of rounds is best-of `3`. This can be altered with the
+`-r [NUMBER OF ROUNDS]` option. The number passed must be an odd number. To see
+a list of all available options, run with `-h`.
 ```
 rps [OPTIONS]
 ```
-After calling the executable, you'll be asked to enter 'rock', 'paper' or
-'scissors' (entering the first letters of the options is also accepted). The
-program will also randomly choose one of these options. Once you hit `[return]`,
-your choice will be compared to the computer's choice, and a winner for that
-round will be chosen based off the classic rules of the game.
+After calling the executable, you'll be asked to enter 'rock', 'paper', or
+'scissors' (entering the first letters of the options is also accepted for
+brevity's sake). The program will also randomly choose one of these options.
+Once you hit `[return]`, your choice will be compared to the computer's choice,
+and a winner for that round will be chosen based off the classic rules of the
+game.
 
 ### Rules
 Rock beats Scissors    

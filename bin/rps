@@ -3,6 +3,9 @@ require_relative '../lib/rock_paper_scissors.rb'
 
 options = {rounds: 3}
 OptionParser.new do |o|
+  o.on('-c', '--[no-]clear', "Clear screen after every turn") do |f|
+    options[:clear] = f
+  end
   o.on('-r', '--rounds=N', Integer, "Best of N rounds", "Default is 3") do |f|
     abort("Please use an odd number") if f.even?
     options[:rounds] = f
@@ -10,6 +13,8 @@ OptionParser.new do |o|
 end.parse!(ARGV)
 
 game = RockPaperScissors.new(options)
+
+system('clear') if options[:clear]
 
 puts ">> FIRST TO #{game.points_to_win} WINS! <<"
 
@@ -27,6 +32,7 @@ until game.game_winner?
   end
 
   {user: u_choice, computer: c_choice}.each { |k,v| puts "> #{k} chose #{v}" }
+  system('clear') if options[:clear]
 
   puts "Round winner: #{game.round_winner(u_choice, c_choice)}"
 end
