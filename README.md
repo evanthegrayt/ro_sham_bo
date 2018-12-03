@@ -35,3 +35,8 @@ Rock beats Scissors
 Scissors beats Paper    
 Paper beats Rock
 
+## Reporting Bugs
+This was just a fun project for me to work on, but if you find problems, please
+[create an
+issue](https://github.com/evanthegrayt/rock-paper-scissors/issues/new).
+
