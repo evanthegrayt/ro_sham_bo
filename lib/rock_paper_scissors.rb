@@ -1,8 +1,3 @@
-#!/usr/bin/env ruby
-# Simple Rock Paper Scissors game for fun.
-
-require 'optparse'
-
 class RockPaperScissors
 
   RULES = {
