@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'optparse'
-require_relative '../lib/rock_paper_scissors.rb'
+require_relative '../lib/ro_sham_bo.rb'
 
 options = {rounds: 3}
 OptionParser.new do |o|
@@ -13,7 +13,7 @@ OptionParser.new do |o|
   end
 end.parse!(ARGV)
 
-game = RockPaperScissors.new(options)
+game = RoShamBo.new(options)
 
 system('clear') if options[:clear]
 
@@ -40,4 +40,3 @@ end
 
 puts game.game_winner ? "\nGame over! #{game.game_winner} won!" :
   "\nGame was quit. Score was #{game.score.inspect}"
-

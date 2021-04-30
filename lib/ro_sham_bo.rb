@@ -1,9 +1,8 @@
-class RockPaperScissors
-
+class RoShamBo
   RULES = {
-    rock:     {rock: :draw, paper: :lose, scissors: :win},
-    paper:    {rock: :win,  paper: :draw, scissors: :lose},
-    scissors: {rock: :lose, paper: :win,  scissors: :draw},
+    rock:     {rock: :draw, paper: :lose, scissors: :win}.freeze,
+    paper:    {rock: :win,  paper: :draw, scissors: :lose}.freeze,
+    scissors: {rock: :lose, paper: :win,  scissors: :draw}.freeze,
   }.freeze
 
   attr_reader :score, :points_to_win
@@ -45,6 +44,4 @@ class RockPaperScissors
   def game_winner?
     !game_winner.nil?
   end
-
 end
-

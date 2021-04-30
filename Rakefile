@@ -1,28 +1,23 @@
-INSTALL_PATH = File.expand_path(File.join(File.dirname(__FILE__)), '..').freeze
-LINK_TO = File.join('/', 'usr', 'local', 'bin', 'rps').freeze
-LINK_FROM = File.join(INSTALL_PATH, 'bin', 'rps').freeze
+# frozen_string_literal: true
 
-task :default => :install
+require_relative 'lib/ro_sham_bo'
+require 'bundler/gem_tasks'
+# require 'rdoc/task'
+# require 'rake/testtask'
 
-desc "Install to `/usr/local/bin`"
-task :install do
-  File.symlink(LINK_FROM, LINK_TO)
-end
+# TODO: Add tests.
+# Rake::TestTask.new do |t|
+#   t.libs = ['lib']
+#   t.warning = true
+#   t.verbose = true
+#   t.test_files = FileList['test/**/*_test.rb']
+# end
 
-desc "Uninstall..."
-task :uninstall do
-  File.delete(LINK_TO) if File.symlink?(LINK_TO)
-end
+# TODO: Add documentation.
+# RDoc::Task.new do |rdoc|
+#   rdoc.main = 'README.md'
+#   rdoc.rdoc_dir = 'doc'
+#   rdoc.rdoc_files.include('README.md', 'lib/**/*.rb')
+# end
 
-desc "Tagging and pulling from master"
-task :update do
-  sh("git tag #{Time.now.strftime('%Y-%m-%d-%H%M')}")
-  sh("git pull origin master")
-end
-
-desc "Checking out last deployment tag"
-task :rollback do
-  tags = `git tag`.strip.split("\n")
-  sh("git checkout #{tags.last}")
-end
-
+# task default: :test

@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    ro_sham_bo (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (13.0.3)
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  rake (~> 13.0, >= 13.0.1)
+  ro_sham_bo!
+
+BUNDLED WITH
+   2.2.16
