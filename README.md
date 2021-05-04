@@ -28,11 +28,18 @@ Once you hit `[return]`, your choice will be compared to the computer's choice,
 and a winner for that round will be chosen based off the classic rules of the
 game.
 
+Cheating is possible, both for the user and the computer. Pass `-c` (or `-c
+user`) for the user to always win. Pass `-c computer` to make the computer win.
+It will still look real; cheating only actually happens when the non-cheater has
+one less point than is needed to win. Even then, it can still return a draw for
+that round.
+
 ### Rules
 The rules are standard rock, paper, scissors rules.
 - Rock beats Scissors
 - Scissors beats Paper
 - Paper beats Rock
+- Two of a kind results in a draw
 
 ## Reporting Bugs
 This was just a fun project for me to work on, but if you find problems, please
