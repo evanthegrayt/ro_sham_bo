@@ -12,11 +12,11 @@ class RoShamBo
 
     ##
     # Minor version.
-    MINOR = 0
+    MINOR = 1
 
     ##
     # Patch version.
-    PATCH = 2
+    PATCH = 0
 
     ##
     # Version as +MAJOR.MINOR.PATCH+

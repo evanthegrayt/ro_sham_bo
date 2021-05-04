@@ -1,3 +1,5 @@
+require_relative 'ro_sham_bo/version'
+
 class RoShamBo
   RULES = {
     rock:     {rock: :draw, paper: :lose, scissors: :win}.freeze,
@@ -15,6 +17,12 @@ class RoShamBo
   attr_reader :winner
 
   def initialize(cheater: nil, rounds: 3)
+    if rounds.even?
+      raise ArgumentError, 'rounds must be odd'
+    elsif ![nil, :user, :computer].include?(cheater)
+      raise ArgumentError, 'cheater must be :computer or :user'
+    end
+
     @cheater = cheater
     @rounds = rounds
     @score = {user: 0, computer: 0}
@@ -22,7 +30,7 @@ class RoShamBo
   end
 
   def play(input)
-    raise 'Game Over!' if over?
+    raise RuntimeError, 'Game Over!' if over?
 
     @user_choice = sanitized_choice(input)
     @computer_choice = computer_turn(user_choice)
@@ -62,7 +70,7 @@ class RoShamBo
     if cheater == :user && about_to_win?(:computer)
       cheat(input, :win)
     elsif cheater == :computer && about_to_win?(:user)
-      cheat(input, :win)
+      cheat(input, :lose)
     else
       RULES.keys.sample
     end

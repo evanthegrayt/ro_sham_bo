@@ -2,16 +2,15 @@
 
 require_relative 'lib/ro_sham_bo'
 require 'bundler/gem_tasks'
+require 'rake/testtask'
 # require 'rdoc/task'
-# require 'rake/testtask'
 
-# TODO: Add tests.
-# Rake::TestTask.new do |t|
-#   t.libs = ['lib']
-#   t.warning = true
-#   t.verbose = true
-#   t.test_files = FileList['test/**/*_test.rb']
-# end
+Rake::TestTask.new do |t|
+  t.libs = ['lib']
+  t.warning = true
+  t.verbose = true
+  t.test_files = FileList['test/**/*_test.rb']
+end
 
 # TODO: Add documentation.
 # RDoc::Task.new do |rdoc|
@@ -20,4 +19,4 @@ require 'bundler/gem_tasks'
 #   rdoc.rdoc_files.include('README.md', 'lib/**/*.rb')
 # end
 
-# task default: :test
+task default: :test
