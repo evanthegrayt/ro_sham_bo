@@ -16,7 +16,7 @@ class RoShamBo
 
     ##
     # Patch version.
-    PATCH = 0
+    PATCH = 1
 
     ##
     # Version as +MAJOR.MINOR.PATCH+
