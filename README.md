@@ -34,9 +34,9 @@ game.
 
 Cheating is possible, both for the user and the computer. Pass `-c` (or `-c
 user`) for the user to always win. Pass `-c computer` to make the computer win.
-It will still look real; cheating only actually happens when the non-cheater has
-one less point than is needed to win. Even then, it can still return a draw for
-that round.
+It will still look real; cheating only actually happens when the non-cheater
+only needs one more point to win. Even then, it can still return a draw for that
+round.
 
 ### Rules
 The rules are standard rock, paper, scissors rules.

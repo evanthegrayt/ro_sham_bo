@@ -58,14 +58,14 @@ class RoShamBoTest < Test::Unit::TestCase
   def test_cheater
     assert_raise(ArgumentError) { RoShamBo.new(cheater: :nobody) }
 
-    game = RoShamBo.new(cheater: :user)
     50.times do
+      game = RoShamBo.new(cheater: :user)
       game.play(:rock) until game.over?
       assert_equal(:user, game.winner)
     end
 
-    game = RoShamBo.new(cheater: :computer)
     50.times do
+      game = RoShamBo.new(cheater: :computer)
       game.play(:rock) until game.over?
       assert_equal(:computer, game.winner)
     end
