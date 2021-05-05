@@ -10,6 +10,7 @@ class RoShamBo
   attr_reader :cheater
   attr_reader :rounds
   attr_reader :score
+  attr_reader :draws
   attr_reader :points_to_win
   attr_reader :user_choice
   attr_reader :computer_choice
@@ -26,6 +27,7 @@ class RoShamBo
     @cheater = cheater
     @rounds = rounds
     @score = {user: 0, computer: 0}
+    @draws = 0
     @points_to_win = (rounds.to_f / 2).ceil
   end
 
@@ -53,7 +55,7 @@ class RoShamBo
       when :lose then :computer
       else :draw
       end
-    score[winner] += 1 unless winner == :draw
+    winner == :draw ? @draws += 1 : score[winner] += 1
     winner
   end
 

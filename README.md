@@ -18,6 +18,7 @@ rake install
 ```
 
 ## Usage
+### Command Line
 Just call the `ro_sham_bo` executable, which should now be in your `$PATH`.
 The default number of rounds is best-of `3`. This can be altered with the
 `-r [NUMBER OF ROUNDS]` option. The number passed must be an odd number. To see
@@ -32,11 +33,77 @@ Once you hit `[return]`, your choice will be compared to the computer's choice,
 and a winner for that round will be chosen based off the classic rules of the
 game.
 
+```
+$ ro_sham_bo
+>> FIRST TO 2 WINS! <<
+
+Current score: {:user=>0, :computer=>0}
+What is your choice? (r)ock, (p)aper, or (s)cissors?: p
+> user chose paper
+> computer chose paper
+Round winner: draw
+
+Current score: {:user=>0, :computer=>0}
+What is your choice? (r)ock, (p)aper, or (s)cissors?: s
+> user chose scissors
+> computer chose rock
+Round winner: computer
+
+Current score: {:user=>0, :computer=>1}
+What is your choice? (r)ock, (p)aper, or (s)cissors?: r
+> user chose rock
+> computer chose paper
+Round winner: computer
+
+Game over! Computer won!
+Score was {:user=>0, :computer=>2}
+```
+
 Cheating is possible, both for the user and the computer. Pass `-c` (or `-c
 user`) for the user to always win. Pass `-c computer` to make the computer win.
 It will still look real; cheating only actually happens when the non-cheater
 only needs one more point to win. Even then, it can still return a draw for that
 round.
+
+### Console
+You can play via an IRB/Pry console via the gem's API.
+
+```ruby
+require 'ro_sham_bo'
+# => true
+
+game = RoShamBo.new
+# => #<RoShamBo:0x00007f7ffa99a5a8
+#  @cheater=nil,
+#  @draws=0,
+#  @points_to_win=2,
+#  @rounds=3,
+#  @score={:user=>0, :computer=>0}>
+
+game.play(:rock)
+#=> #<RoShamBo:0x00007f7ffa99a5a8
+# @cheater=nil,
+# @computer_choice=:rock,
+# @draws=1,
+# @points_to_win=2,
+# @round_winner=:draw,
+# @rounds=3,
+# @score={:user=>0, :computer=>0},
+# @user_choice=:rock>
+
+game.play(%i[rock paper scissors].sample) until game.over?
+game
+# => #<RoShamBo:0x00007f7ffa99a5a8
+#  @cheater=nil,
+#  @computer_choice=:paper,
+#  @draws=3,
+#  @points_to_win=2,
+#  @round_winner=:user,
+#  @rounds=3,
+#  @score={:user=>2, :computer=>0},
+#  @user_choice=:scissors,
+#  @winner=:user>
+```
 
 ### Rules
 The rules are standard rock, paper, scissors rules.
