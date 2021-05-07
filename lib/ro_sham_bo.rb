@@ -4,7 +4,7 @@ class RoShamBo
   RULES = {
     rock:     {rock: :draw, paper: :lose, scissors: :win}.freeze,
     paper:    {rock: :win,  paper: :draw, scissors: :lose}.freeze,
-    scissors: {rock: :lose, paper: :win,  scissors: :draw}.freeze,
+    scissors: {rock: :lose, paper: :win,  scissors: :draw}.freeze
   }.freeze
 
   attr_reader :cheater
@@ -49,14 +49,11 @@ class RoShamBo
   private
 
   def determine_round_winner(u_choice, c_choice)
-    winner =
-      case RULES[u_choice][c_choice]
-      when :win  then :user
-      when :lose then :computer
-      else :draw
-      end
-    winner == :draw ? @draws += 1 : score[winner] += 1
-    winner
+    case RULES[u_choice][c_choice]
+    when :win  then :user
+    when :lose then :computer
+    else :draw
+    end.tap { |winner| winner == :draw ? @draws += 1 : score[winner] += 1 }
   end
 
   def sanitized_choice(input)
