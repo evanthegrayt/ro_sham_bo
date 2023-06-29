@@ -12,7 +12,7 @@ OptionParser.new do |o|
     abort("Please use an odd number") if f.even?
     options[:rounds] = f
   end
-  o.on('-c', '--cheater [USER]', 'Choose who wins', 'user/computer') do |f|
+  o.on('-C', '--cheater [USER]', 'Choose who wins', 'user/computer') do |f|
     options[:cheater] =
       if f.nil?
         :user
