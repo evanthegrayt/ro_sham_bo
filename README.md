@@ -59,8 +59,8 @@ Game over! Computer won!
 Score was {:user=>0, :computer=>2}
 ```
 
-Cheating is possible, both for the user and the computer. Pass `-c` (or `-c
-user`) for the user to always win. Pass `-c computer` to make the computer win.
+Cheating is possible, both for the user and the computer. Pass `-C` (or `-C
+user`) for the user to always win. Pass `-C computer` to make the computer win.
 It will still look real; cheating only actually happens when the non-cheater
 only needs one more point to win. Even then, it can still return a draw for that
 round.
