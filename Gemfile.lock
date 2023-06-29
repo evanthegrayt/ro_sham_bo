@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ro_sham_bo (0.1.0)
+    ro_sham_bo (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -19,6 +19,7 @@ GEM
       power_assert
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-20
 
 DEPENDENCIES
