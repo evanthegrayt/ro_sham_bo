@@ -1,10 +1,10 @@
-require_relative 'ro_sham_bo/version'
+require_relative "ro_sham_bo/version"
 
 class RoShamBo
   RULES = {
-    rock:     {rock: :draw, paper: :lose, scissors: :win}.freeze,
-    paper:    {rock: :win,  paper: :draw, scissors: :lose}.freeze,
-    scissors: {rock: :lose, paper: :win,  scissors: :draw}.freeze
+    rock: {rock: :draw, paper: :lose, scissors: :win}.freeze,
+    paper: {rock: :win, paper: :draw, scissors: :lose}.freeze,
+    scissors: {rock: :lose, paper: :win, scissors: :draw}.freeze
   }.freeze
 
   attr_reader :cheater
@@ -19,9 +19,9 @@ class RoShamBo
 
   def initialize(cheater: nil, rounds: 3)
     if rounds.even?
-      raise ArgumentError, 'rounds must be odd'
+      raise ArgumentError, "rounds must be odd"
     elsif ![nil, :user, :computer].include?(cheater)
-      raise ArgumentError, 'cheater must be :computer or :user'
+      raise ArgumentError, "cheater must be :computer or :user"
     end
 
     @cheater = cheater
@@ -32,7 +32,7 @@ class RoShamBo
   end
 
   def play(input)
-    raise RuntimeError, 'Game Over!' if over?
+    raise "Game Over!" if over?
 
     @user_choice = sanitized_choice(input)
     @computer_choice = computer_turn(user_choice)
@@ -49,19 +49,19 @@ class RoShamBo
   private
 
   def determine_round_winner(u_choice, c_choice)
-    case RULES[u_choice][c_choice]
-    when :win  then :user
+    case RULES.dig(u_choice, c_choice)
+    when :win then :user
     when :lose then :computer
     else :draw
-    end.tap { |winner| winner == :draw ? @draws += 1 : score[winner] += 1 }
+    end.tap { |winner| (winner == :draw) ? @draws += 1 : score[winner] += 1 }
   end
 
   def sanitized_choice(input)
     case input
-    when 'r', 'rock', :r, :rock then :rock
-    when 'p', 'paper', :p, :paper then :paper
-    when 's', 'scissors', :s, :scissors then :scissors
-    else raise ArgumentError, 'Invalid choice [rpsx]'
+    when "r", "rock", :r, :rock then :rock
+    when "p", "paper", :p, :paper then :paper
+    when "s", "scissors", :s, :scissors then :scissors
+    else raise ArgumentError, "Invalid choice [rpsx]"
     end
   end
 
@@ -76,7 +76,7 @@ class RoShamBo
   end
 
   def cheat(input, win_or_lose)
-    rand >= 0.33 ? RULES[input].key(win_or_lose) : RULES[input].key(:draw)
+    (rand >= 0.33) ? RULES[input].key(win_or_lose) : RULES[input].key(:draw)
   end
 
   def about_to_win?(user)
