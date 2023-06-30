@@ -57,11 +57,11 @@ class RoShamBo
   end
 
   def sanitized_choice(input)
-    case input
-    when "r", "rock", :r, :rock then :rock
-    when "p", "paper", :p, :paper then :paper
-    when "s", "scissors", :s, :scissors then :scissors
-    else raise ArgumentError, "Invalid choice [rpsx]"
+    case input.intern
+    when :r, :rock then :rock
+    when :p, :paper then :paper
+    when :s, :scissors then :scissors
+    else raise ArgumentError, "Invalid choice [(r)ock, (s)cissors, (p)aper]"
     end
   end
 
