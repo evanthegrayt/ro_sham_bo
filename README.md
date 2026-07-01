@@ -1,7 +1,7 @@
 # RoShamBo
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fevanthegrayt%2Fro_sham_bo%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/evanthegrayt/ro_sham_bo/goto?ref=master)
+[![Language: Ruby](https://img.shields.io/static/v1?label=language&message=Ruby&color=CC342D&style=flat&logo=ruby&logoColor=CC342D)](https://www.ruby-lang.org/)
 [![Gem Version](https://img.shields.io/gem/v/ro_sham_bo.svg)](https://rubygems.org/gems/ro_sham_bo)
-![Language: Ruby](https://img.shields.io/static/v1?label=language&message=Ruby&color=CC342D&style=flat&logo=ruby&logoColor=CC342D)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Simple Rock, Paper, Scissors game for the command-line, implemented in ruby.
