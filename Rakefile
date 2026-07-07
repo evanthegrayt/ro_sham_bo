@@ -4,6 +4,11 @@ require_relative "lib/ro_sham_bo"
 require "bundler/gem_tasks"
 require "rake/testtask"
 require "rdoc/task"
+require "semverve/task"
+
+Semverve::Task.new do |t|
+  t.bundle_lock = true
+end
 
 Rake::TestTask.new do |t|
   t.libs = ["lib"]

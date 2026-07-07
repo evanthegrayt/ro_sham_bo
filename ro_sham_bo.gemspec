@@ -30,5 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rdoc"
   spec.add_development_dependency "rake", "~> 13.0", ">= 13.0.1"
   spec.add_development_dependency "test-unit", "~> 3.3", ">= 3.3.5"
+  spec.add_development_dependency "semverve"
   spec.add_development_dependency "simplecov"
 end

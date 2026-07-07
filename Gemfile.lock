@@ -18,6 +18,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
+    semverve (0.4.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -39,6 +40,7 @@ DEPENDENCIES
   rake (~> 13.0, >= 13.0.1)
   rdoc
   ro_sham_bo!
+  semverve
   simplecov
   test-unit (~> 3.3, >= 3.3.5)
 
